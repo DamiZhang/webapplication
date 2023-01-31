@@ -1,8 +1,10 @@
 # webapp
 Web Application INFO 6225
-1.jdk
-2.maven
-3.mysql
+#### 部署环境
+
+1.  jdk
+2.  maven
+3.  
 
 #### 使用说明
 
