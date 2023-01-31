@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.sk.userman.domain.User;
 import com.sk.userman.dto.LoginDTO;
+import com.sk.userman.dto.RegisterDTO;
 import com.sk.userman.dto.UserDTO;
 import com.sk.userman.exception.BusinessException;
 import com.sk.userman.mapper.UserMapper;
@@ -31,12 +32,15 @@ implements UserService{
     private JwtUtils jwtUtils;
 
     @Override
-    public void register(User user) {
+    public void register(RegisterDTO registerDTO) {
 
-        User oneUser = getOne(new QueryWrapper<User>().eq("email", user.getEmail()));
+        User oneUser = getOne(new QueryWrapper<User>().eq("email", registerDTO.getEmail()));
         if (oneUser == null) {
             //进行加密
-            user.setPassword(BCryptUtils.encode(user.getPassword()));
+
+            User user = new User();
+            BeanUtils.copyProperties(registerDTO,user);
+            user.setPassword(BCryptUtils.encode(registerDTO.getPassword()));
             user.setAccountCreated(new Date());
             user.setAccountUpdate(new Date());
             save(user);

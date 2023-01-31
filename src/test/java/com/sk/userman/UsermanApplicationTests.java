@@ -1,8 +1,8 @@
 package com.sk.userman;
 
 
-import com.sk.userman.domain.User;
 import com.sk.userman.dto.LoginDTO;
+import com.sk.userman.dto.RegisterDTO;
 import com.sk.userman.dto.UserDTO;
 import com.sk.userman.service.UserService;
 import com.sk.userman.utils.BaseContext;
@@ -23,7 +23,7 @@ public class UsermanApplicationTests {
      */
     @Test
     public void register(){
-        User user = new User();
+        RegisterDTO user = new RegisterDTO();
         user.setPassword("123456");
         user.setEmail("28333@qq.com");
         user.setFirstName("小");

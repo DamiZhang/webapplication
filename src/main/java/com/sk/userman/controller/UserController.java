@@ -1,7 +1,7 @@
 package com.sk.userman.controller;
 
-import com.sk.userman.domain.User;
 import com.sk.userman.dto.LoginDTO;
+import com.sk.userman.dto.RegisterDTO;
 import com.sk.userman.dto.UserDTO;
 import com.sk.userman.service.UserService;
 import com.sk.userman.utils.Result;
@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.*;
  **/
 @RequestMapping("userman")
 @RestController
-@Api(tags="用户管理")
+@Api(tags="userManage")
 public class UserController {
 
     /**
@@ -31,7 +31,7 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @ApiOperation("登录")
+    @ApiOperation("login")
     @PostMapping("/login")
     public Result<String> login(@Validated @RequestBody LoginDTO loginDTO){
         String token = userService.login(loginDTO);
@@ -42,8 +42,8 @@ public class UserController {
 
     @ApiOperation("注册")
     @PostMapping("/register")
-    public Result register(@Validated @RequestBody User user){
-        userService.register(user);
+    public Result register(@Validated @RequestBody RegisterDTO register){
+        userService.register(register);
         return new Result<>().ok("注册成功");
     }
 

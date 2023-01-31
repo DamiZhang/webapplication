@@ -32,9 +32,6 @@ spring:
         wall:
           config:
             multi-statement-allow: true
-  jackson:
-    date-format: yyyy-MM-dd HH:mm:ss
-    time-zone: GMT+8
 userman:
   jwt:
     # \u52A0\u5BC6\u79D8\u94A5
