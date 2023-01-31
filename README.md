@@ -4,7 +4,7 @@ Web Application INFO 6225
 
 1.  jdk
 2.  maven
-3.  
+3.  mysql
 
 #### 使用说明
 
